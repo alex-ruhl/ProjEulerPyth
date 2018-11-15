@@ -22,13 +22,13 @@ def smallest_divisible(n):
     prms = [i for i in p]
     a = []
 
-    k = 20
+    k = n
     N = 1
     i = 0
     check = True
     limit = math.sqrt(k)
-    while prms[i] <= k:
-        a[i] = 1
+    while i < len(prms) and prms[i] <= k:
+        a.append(1)
         if check:
             if prms[i] <= limit:
                 a[i] = math.floor(math.log(k) / math.log(prms[i]))
@@ -37,7 +37,7 @@ def smallest_divisible(n):
         N = N * math.pow(prms[i], a[i])
         i += 1
     
-    return N
+    return int(N)
 
 
 divisors = 20
