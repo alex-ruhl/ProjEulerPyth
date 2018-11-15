@@ -7,7 +7,7 @@
 def smallest_divisible(n):
     small_div = 0
     not_found = True
-    i = 1
+    i = 0
 
     while not_found:
 
@@ -20,10 +20,11 @@ def smallest_divisible(n):
             if j == n:
                 small_div = i
                 break
-        i += 1
+        i += n
 
     return small_div
 
 
-divisors = 20
-print(smallest_divisible(divisors))
+divisors = 10
+for divisors in range (divisors, 20):
+    print(smallest_divisible(divisors))
