@@ -1,15 +1,15 @@
 def adjacentdigitsproduct(ad, n):
 
-    max = -1
+    maxprod = -1
 
-    for j in range(ad, len(n)):
+    for j in range(ad, len(n) - ad):
         temp = 1
         for g in range(0, ad):
-            temp *= n[g+i]
-        if temp > max:
-            max = temp
+            temp *= n[g+j]
+        if temp > maxprod:
+            maxprod = temp
 
-    return max
+    return maxprod
 
 
 numberstring = "73167176531330624919225119674426574742355349194934" \
@@ -38,4 +38,4 @@ number = []
 for i in range(0, numberstring.__len__()):
     number.append(int(numberstring.__getitem__(i)))
 
-print(adjacentdigitsproduct(4, number))
+print(adjacentdigitsproduct(13, number))
