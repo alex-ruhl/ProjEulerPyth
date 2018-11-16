@@ -28,7 +28,7 @@ def smallest_divisible(n):
     check = True
     limit = math.sqrt(k)
     while prms[i] <= k:
-        a[i] = 1
+        a.append(1)
         if check:
             if prms[i] <= limit:
                 a[i] = math.floor(math.log(k) / math.log(prms[i]))
@@ -42,7 +42,6 @@ def smallest_divisible(n):
 
 divisors = 20
 print(smallest_divisible(divisors))
-
 
 # not efficient
 # def numbers(n=2):
