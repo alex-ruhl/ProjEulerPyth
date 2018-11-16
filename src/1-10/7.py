@@ -1,6 +1,10 @@
 import math
 
 
+# By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+# What is the 10 001st prime number?
+
+
 def genprimes(limit):   # derived from
                         # Code by David Eppstein, UC Irvine, 28 Feb 2002
     d = {}              # http://code.activestate.com/recipes/117119/
