@@ -6,6 +6,7 @@
 # (up, down, left, right, or diagonally) in the 20×20 grid?
 
 
+# greedy should be better than the following way
 def largestproduct(n):
     product = -1
 
