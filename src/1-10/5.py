@@ -42,7 +42,9 @@ def smallest_divisible(n):
 
 divisors = 20
 print(smallest_divisible(divisors))
-
+p = genprimes(10001)
+prms = [i for i in p]
+print(prms)
 
 # not efficient
 # def numbers(n=2):
