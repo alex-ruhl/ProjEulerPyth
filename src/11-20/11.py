@@ -6,15 +6,15 @@
 # (up, down, left, right, or diagonally) in the 20×20 grid?
 
 
-# greedy should be better than the following way
-def largestproduct(n):
+# brute force
+def largestproduct(n, grid):
     product = -1
 
     # up/down
     for i in range(0, len(grid) - n):
         for j in range(0, len(grid[i])):
             temp = 1
-            for g in range(i, i + 3):
+            for g in range(i, i + n):
                 temp *= grid[g][j]
             if temp > product:
                 product = temp
@@ -22,20 +22,36 @@ def largestproduct(n):
     # left/right
     for i in range(0, len(grid)):
         for j in range(0, len(grid[i]) - n):
-            for g in range(j, j + 3):
-                temp = 1
-                temp *= grid[i][j]
+            temp = 1
+            for g in range(j, j + n):
+                temp *= grid[i][g]
             if temp > product:
                 product = temp
 
     # right diagonal
+    for i in range(0, len(grid)):
+        for j in range(0, len(grid[i])):
+            temp = 1
+            for g in range(0, n):
+                if i + g < len(grid) and j + g < len(grid[i]):
+                    temp *= grid[i + g][j + g]
+            if temp > product:
+                product = temp
 
     # left diagonal
+    for i in range(0, len(grid)):
+        for j in range(len(grid[i]) - 1, 0, -1):
+            temp = 1
+            for g in range(0, n):
+                if i + g < len(grid) and j - g >= 0:
+                    temp *= grid[i + g][j - g]
+            if temp > product:
+                product = temp
 
     return product
 
 
-grid = [
+inp  = [
         [ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8],
         [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48,  4, 56, 62,  0],
         [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30,  3, 49, 13, 36, 65],
@@ -58,4 +74,4 @@ grid = [
         [ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48]
        ]
 
-print(largestproduct(4))
+print(largestproduct(4, inp))
