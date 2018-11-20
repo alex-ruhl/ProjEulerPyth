@@ -67,7 +67,7 @@ def divisorcheck(morethan):
 
 
 inp = 500
-# print(len(factorisation(28)))
+# print(factorisation(76576500))
 start_time = time.time()
 print(divisorcheck(inp))
 print("--- %s seconds ---" % (time.time() - start_time))
