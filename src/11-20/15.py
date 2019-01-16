@@ -3,12 +3,14 @@
 #
 # How many such routes are there through a 20×20 grid?
 
+from math import factorial
 
-def latticepaths(gridwith):
-    routes = 2
-    routes += gridwith * gridwith
 
-    return routes
+def latticepaths(n):
+    n = 2*n
+    k = n/2
+
+    return factorial(n)/(factorial(k)*factorial(n-k))
 
 
 print(latticepaths(20))
